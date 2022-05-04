@@ -4,8 +4,8 @@
 unit test module for modules in mods folder
 """
 import unittest
-from decorator import print_test_time_elapsed
-from .apps import apis
+from decorator import print_time_elapsed
+from apps import apis
 
 
 class TestModules(unittest.TestCase):
@@ -18,16 +18,17 @@ class TestModules(unittest.TestCase):
     def tearDown(self):
         pass
 
-    @print_test_time_elapsed
-    def test_view_closest_partner(self):
+    @print_time_elapsed
+    def test_pokeapis_functions(self):
         """
         Tests find closest function from partners class
         """
-        partner = apis.amount_match_names()
-        apis.amount_breeding_especies()
-        apis.minmax_weights()
-        self.assertIsInstance(partner, dict)
-        self.assertIsInstance(partner, int)
+        names = apis.amount_match_names()
+        breeds = apis.amount_breeding_especies()
+        minmax_weight = apis.minmax_weights()
+        self.assertIsInstance(names, int)
+        self.assertIsInstance(breeds, int)
+        self.assertIsInstance(minmax_weight, list)
 
 
 if __name__ == '__main__':
